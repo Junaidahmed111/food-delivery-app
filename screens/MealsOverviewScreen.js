@@ -7,15 +7,17 @@ function MealsOverviewScreen({ route }) {
     return mealItem.categoryIds.indexOf(catId) >= 0;
   });
 
-  function renderMelItem(itemData) {
-    return <MealItem title={itemData.item.title} />;
+  function renderMealItem(itemData) {
+    return (
+      <MealItem title={itemData.item.title} imageUrl={itemData.item.imageUrl} />
+    );
   }
   return (
     <View style={styles.container}>
       <FlatList
         data={displyMeals}
         keyExtractor={(item) => item.id}
-        renderItem={renderMelItem}
+        renderItem={renderMealItem}
       />
     </View>
   );
