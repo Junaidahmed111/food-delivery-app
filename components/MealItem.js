@@ -7,7 +7,20 @@ import {
   Image,
   Platform,
 } from "react-native";
-function MealItem({ title, imageUrl, duration, complexity, affordability }) {
+import { useNavigation } from "@react-navigation/native";
+
+function MealItem({
+  id,
+  title,
+  imageUrl,
+  duration,
+  complexity,
+  affordability,
+}) {
+  const navigation = useNavigation();
+  navigation.navigate("MealDetail", {
+    mealId: id,
+  });
   return (
     <View style={styles.mealItem}>
       <Pressable
