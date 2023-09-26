@@ -8,6 +8,7 @@ import {
   Button,
 } from "react-native";
 import { useLayoutEffect } from "react";
+import IconButton from "../components/IconButton";
 
 import MealDetails from "../components/MealDetails";
 import Subtitle from "../components/MealDetail/Subtitle";
@@ -20,13 +21,19 @@ function MealDetailScreen({ route, navigation }) {
     console.log("Pressed!");
   }
 
-  useLayoutEffect(() => { 
+  useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <Button title="tap me" onPress={headerButtonPressHandler} />;
+        return (
+          <IconButton
+            icon="star"
+            color="white"
+            onPress={headerButtonPressHandler}
+          />
+        );
       },
     });
-  },[navigation,headerButtonPressHandler]);
+  }, [navigation, headerButtonPressHandler]);
 
   return (
     <ScrollView style={styles.root}>
