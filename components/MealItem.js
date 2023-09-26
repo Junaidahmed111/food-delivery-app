@@ -18,9 +18,12 @@ function MealItem({
   affordability,
 }) {
   const navigation = useNavigation();
-  navigation.navigate("MealDetail", {
-    mealId: id,
-  });
+
+  function setMealItemHandler() {
+    navigation.navigate("MealDetail", {
+      mealId: id,
+    });
+  }
   return (
     <View style={styles.mealItem}>
       <Pressable
@@ -29,6 +32,7 @@ function MealItem({
           styles.button,
           pressed ? styles.buttonPressed : null,
         ]}
+        onPress={setMealItemHandler}
       >
         <View style={styles.innerContainer}>
           <View>
