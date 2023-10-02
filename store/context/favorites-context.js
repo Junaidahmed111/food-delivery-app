@@ -1,5 +1,5 @@
-import { Children, createContext, useState } from "react";
-const FavoritesContext = createContext({
+import { createContext, useState } from "react";
+export const FavoritesContext = createContext({
   ids: [],
   addFavorite: (id) => {},
   removeFavorite: (id) => {},
